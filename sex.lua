@@ -198,7 +198,7 @@ function ret:Library(Name)
 
 		Window1.Name = "Window"..tostring(m)
 		Window1.Parent = aui
-		Window1.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+		Window1.BackgroundColor3 = Color3.fromRGB(30, 2, 70)
 		Window1.BackgroundTransparency = 1
 		Window1.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		Window1.BorderSizePixel = 2
@@ -360,7 +360,7 @@ function ret:Library(Name)
 			Button.Name = "Button"
 			Button.Parent = Holder
 			Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Button.BorderColor3 = Color3.fromRGB(23, 25, 52)
+			Button.BorderColor3 = Color3.fromRGB(255, 35, 207)
 			Button.Size = UDim2.new(0, 154, 0, 20)
 			Button.BackgroundTransparency = .2
 
