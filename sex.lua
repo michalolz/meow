@@ -342,7 +342,6 @@ function ret:Library(Name)
 			TextButton.TextStrokeTransparency = 1
 			TextButton.TextXAlignment = Enum.TextXAlignment.Left
 		
-			UIGradient.Color = (tog and onc) or ColorSequence.new{ColorSequenceKeypoint.new(0, ofc), ColorSequenceKeypoint.new(1, ofc)}
 			UIGradient.Rotation = 90
 			UIGradient.Parent = Toggle
 			
@@ -351,10 +350,15 @@ function ret:Library(Name)
 			TextButton.MouseButton1Down:Connect(function()
 				f(not tog)
 				tog = not tog
-				UIGradient.Color = (tog and onc) or ColorSequence.new{ColorSequenceKeypoint.new(0, ofc), ColorSequenceKeypoint.new(1, ofc)}
+				if tog then
+					UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, onc), ColorSequenceKeypoint.new(1, onc)}
+				else
+					UIGradient.Color = ofc
+				end
 			end)
 			resize()
 		end
+		
 		
 
 		function self:Button(n,f)
