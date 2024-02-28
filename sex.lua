@@ -198,7 +198,7 @@ function ret:Library(Name)
 
 		Window1.Name = "Window"..tostring(m)
 		Window1.Parent = aui
-		Window1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		Window1.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 		Window1.BackgroundTransparency = 1
 		Window1.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		Window1.BorderSizePixel = 2
