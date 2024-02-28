@@ -313,22 +313,24 @@ function ret:Library(Name)
 			Holder.Size = UDim2.new(0,160,0,m+2)
 		end
 
-		function self:Toggle(name, b, f)
-			local onc = Color3.fromRGB(255, 14, 255)
-			local ofc = Color3.fromRGB(30, 1, 64)
+
+
+function self:Toggle(name,b,f)
+			local onc = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 14, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 14, 255))}
+			local ofc = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(64, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
 			local tog = b
 			
 			local Toggle = Instance.new("Frame")
 			local TextButton = Instance.new("TextButton")
 			local UIGradient = Instance.new("UIGradient")
-		
+
 			Toggle.Name = "Toggle"
 			Toggle.Parent = Holder
 			Toggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			Toggle.BorderColor3 = Color3.fromRGB(23, 25, 52)
 			Toggle.Size = UDim2.new(0, 154, 0, 20)
 			Toggle.BackgroundTransparency = .2
-		
+
 			TextButton.Parent = Toggle
 			TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			TextButton.BackgroundTransparency = 1.000
@@ -341,24 +343,22 @@ function ret:Library(Name)
 			TextButton.TextSize = 15.000
 			TextButton.TextStrokeTransparency = 1
 			TextButton.TextXAlignment = Enum.TextXAlignment.Left
-		
+
+			UIGradient.Color = ((tog and onc) or (not tog and ofc))
 			UIGradient.Rotation = 90
 			UIGradient.Parent = Toggle
 			
 			if b then f(b) end
-		
+
 			TextButton.MouseButton1Down:Connect(function()
 				f(not tog)
 				tog = not tog
-				if tog then
-					UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0, onc), ColorSequenceKeypoint.new(1, onc)}
-				else
-					UIGradient.Color = ofc
-				end
+				UIGradient.Color = ((tog and onc) or (not tog and ofc))
 			end)
 			resize()
 		end
-		
+
+
 		
 
 		function self:Button(n,f)
