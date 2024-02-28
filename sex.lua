@@ -1,6 +1,6 @@
---[[ athena ui lib
-	i dont think they exist anymore idk
-	made just for memories
+--[[ phantom ui lib
+     this isn't for public use so there is no documentation
+     didn't bother to obfuscate because lag and yes
 ]]
 local uis = game:GetService("UserInputService")
 local run = game:GetService("RunService")
@@ -439,6 +439,7 @@ function self:Toggle(name,b,f)
 			end)
 
 			TextButton.MouseButton1Down:Connect(function()
+
 				TextButton.Text = tostring(n).." : ..."
 				selecting = true
 				local con; con = uis.InputBegan:Connect(function(m)
@@ -447,6 +448,11 @@ function self:Toggle(name,b,f)
 						TextButton.Text = tostring(n).." : "..tostring(k):sub(14):lower()
 						selecting = false
 						con:Disconnect()
+						UIGradient.Color = ColorSequence.new{
+							ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 100, 203)),
+							ColorSequenceKeypoint.new(0.50, Color3.fromRGB(118, 0, 254)),
+							ColorSequenceKeypoint.new(1.00, Color3.fromRGB(71, 3, 183))
+						}	
 					end
 				end)
 			end)
@@ -586,7 +592,7 @@ function self:Toggle(name,b,f)
 			Textbox.Size = UDim2.new(0, 154, 0, 20)
 			Textbox.BackgroundTransparency = .2
 
-			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(86, 87, 85)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(78, 77, 73))}
+			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
 			UIGradient.Rotation = 90
 			UIGradient.Parent = Textbox
 
