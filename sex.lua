@@ -1,7 +1,3 @@
---[[ athena ui lib
-	i dont think they exist anymore idk
-	made just for memories
-]]
 local uis = game:GetService("UserInputService")
 local run = game:GetService("RunService")
 
@@ -316,7 +312,11 @@ function ret:Library(Name)
 
 
 function self:Toggle(name,b,f)
-			local onc = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(220, 1, 220)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(60, 8, 90))}
+	local onc = ColorSequence.new{
+		ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 192, 203)),
+		ColorSequenceKeypoint.new(0.50, Color3.fromRGB(220, 20, 60)),
+		ColorSequenceKeypoint.new(1.00, Color3.fromRGB(128, 0, 128))
+	}	
 			local ofc = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
 			local tog = b
 			
