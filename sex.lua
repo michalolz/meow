@@ -1,3 +1,4 @@
+
 local uis = game:GetService("UserInputService")
 local run = game:GetService("RunService")
 
@@ -386,7 +387,7 @@ function self:Toggle(name,b,f)
 			TextButton.TextStrokeTransparency = 1
 			TextButton.TextXAlignment = Enum.TextXAlignment.Left
 
-			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(86, 87, 85)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(78, 77, 73))}
+			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
 			UIGradient.Rotation = 90
 			UIGradient.Parent = Button
 
@@ -420,7 +421,7 @@ function self:Toggle(name,b,f)
 			TextButton.TextSize = 15.000
 			TextButton.TextStrokeTransparency = 1
 
-			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(86, 87, 85)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(78, 77, 73))}
+			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
 			UIGradient.Rotation = 90
 			UIGradient.Parent = Keybind
 
