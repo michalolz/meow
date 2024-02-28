@@ -1,3 +1,7 @@
+--[[ athena ui lib
+	i dont think they exist anymore idk
+	made just for memories
+]]
 local uis = game:GetService("UserInputService")
 local run = game:GetService("RunService")
 
@@ -198,7 +202,7 @@ function ret:Library(Name)
 
 		Window1.Name = "Window"..tostring(m)
 		Window1.Parent = aui
-		Window1.BackgroundColor3 = Color3.fromRGB(30, 2, 70)
+		Window1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		Window1.BackgroundTransparency = 1
 		Window1.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		Window1.BorderSizePixel = 2
@@ -310,8 +314,8 @@ function ret:Library(Name)
 		end
 
 		function self:Toggle(name,b,f)
-			local onc = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(46, 59, 145)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(39, 49, 126))}
-			local ofc = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(86, 87, 85)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(78, 77, 73))}
+			local onc = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 14, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 14, 255))}
+			local ofc = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(64, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
 			local tog = b
 			
 			local Toggle = Instance.new("Frame")
@@ -360,7 +364,7 @@ function ret:Library(Name)
 			Button.Name = "Button"
 			Button.Parent = Holder
 			Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Button.BorderColor3 = Color3.fromRGB(255, 35, 207)
+			Button.BorderColor3 = Color3.fromRGB(23, 25, 52)
 			Button.Size = UDim2.new(0, 154, 0, 20)
 			Button.BackgroundTransparency = .2
 
