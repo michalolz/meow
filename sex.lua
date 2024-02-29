@@ -1,12 +1,12 @@
 --[[ phantom ui lib
-     this isn't for public use so there is no documentation
+     this isn't for public use so i provide no documentation
      didn't bother to obfuscate because lag and yes
 ]]
 local uis = game:GetService("UserInputService")
 local run = game:GetService("RunService")
 
-if game:GetService("CoreGui"):FindFirstChild("Athena ui Remake") then
-	game:GetService("CoreGui"):FindFirstChild("Athena ui Remake"):Destroy()
+if game:GetService("CoreGui"):FindFirstChild("Phantom ui Remake") then
+	game:GetService("CoreGui"):FindFirstChild("Phantom ui Remake"):Destroy()
 end
 
 local ret = {}
@@ -22,7 +22,7 @@ function ret:Library(Name)
 	local aui = Instance.new("ScreenGui")
 
 	aui.Parent = game:GetService("CoreGui")
-	aui.Name = "Athena ui Remake"
+	aui.Name = "Phantom ui Remake"
 
 	local rtbl = {}
 	local NormalColor = Color3.new(0,0,0)
@@ -37,7 +37,7 @@ function ret:Library(Name)
 	local Notifications = Instance.new("Frame")
 	local Blur = Instance.new("BlurEffect",game:GetService("Lighting"))
 
-	Blur.Name = "Athena Blur"
+	Blur.Name = "Phantom Blur"
 	Blur.Enabled = false
 	Blur.Size = 24
 
