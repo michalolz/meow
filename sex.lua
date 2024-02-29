@@ -486,7 +486,7 @@ function self:Toggle(name,b,f)
 			TextLabel.TextStrokeTransparency = 1
 			TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 
-			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(86, 87, 85)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(78, 77, 73))}
+			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
 			UIGradient.Rotation = 90
 			UIGradient.Parent = Label
 			resize()
@@ -520,7 +520,7 @@ function self:Toggle(name,b,f)
 			SliderFrame.TextStrokeTransparency = 1
 			SliderFrame.ZIndex = 2
 
-			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(86, 87, 85)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(78, 77, 73))}
+			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
 			UIGradient.Rotation = 90
 			UIGradient.Parent = Slider
 
@@ -537,7 +537,12 @@ function self:Toggle(name,b,f)
 			Slider_2.TextSize = 15.000
 			Slider_2.BackgroundTransparency = .2
 
-			OnToggleGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(46, 59, 145)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(39, 49, 126))}
+			OnToggleGradient.Color = ColorSequence.new{
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 100, 203)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(118, 0, 254)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(71, 3, 183))
+			}
+
 			OnToggleGradient.Rotation = 90
 			OnToggleGradient.Name = "OnToggleGradient"
 			OnToggleGradient.Parent = Slider_2
@@ -703,7 +708,7 @@ function self:Toggle(name,b,f)
 			TextLabel.TextStrokeTransparency = 1
 			TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 
-			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(86, 87, 85)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(78, 77, 73))}
+			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
 			UIGradient.Rotation = 90
 			UIGradient.Parent = Dropdown
 
@@ -730,7 +735,7 @@ function self:Toggle(name,b,f)
 			DFrame.Visible = false
 			DFrame.BackgroundTransparency = .2
 
-			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(86, 87, 85)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(78, 77, 73))}
+			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
 			UIGradient.Rotation = 90
 			UIGradient.Parent = DFrame
 
@@ -738,7 +743,7 @@ function self:Toggle(name,b,f)
 			UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 			UIListLayout.Padding = UDim.new(0, 4)
 
-			UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(86, 87, 85)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(78, 77, 73))}
+			UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
 			UIGradient_2.Rotation = 90
 			UIGradient_2.Parent = Dropdown
 
@@ -816,18 +821,18 @@ function self:Toggle(name,b,f)
 				Option.TextStrokeTransparency = 1
 				Option.TextXAlignment = Enum.TextXAlignment.Left
 
-				UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(86, 87, 85)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(78, 77, 73))}
+				UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
 				UIGradient_2.Rotation = 90
 				UIGradient_2.Parent = OptionParent
 
 				Option.MouseButton1Down:Connect(function()
-					UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(46, 59, 145)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(39, 49, 126))}
+					UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
 					task.wait(.5)
 					up()
 					openg = false
 					DFrame.Visible = false
 					ImageButton.Rotation = 0
-					UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(86, 87, 85)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(78, 77, 73))}
+					UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
 					f(thing)
 				end)
 			end
@@ -856,7 +861,7 @@ function self:Toggle(name,b,f)
 			local self2 = {}
 
 			local onc = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(46, 59, 145)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(39, 49, 126))}
-				local ofc = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(86, 87, 85)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(78, 77, 73))}
+				local ofc = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
 			local togg = de
 
 			local Dropdown = Instance.new("Frame")
@@ -893,7 +898,7 @@ function self:Toggle(name,b,f)
 			TextLabel.TextStrokeTransparency = 1
 			TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 
-			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(86, 87, 85)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(78, 77, 73))}
+			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
 			UIGradient.Rotation = 90
 			UIGradient.Parent = DFrame
 
@@ -986,7 +991,7 @@ function self:Toggle(name,b,f)
 
 			function self2:Toggle(name,b,f)
 				local onc = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(46, 59, 145)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(39, 49, 126))}
-				local ofc = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(86, 87, 85)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(78, 77, 73))}
+				local ofc = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
 				local tog = b
 				
 				local Toggle = Instance.new("Frame")
@@ -1051,7 +1056,7 @@ function self:Toggle(name,b,f)
 				TextButton.TextStrokeTransparency = 1
 				TextButton.TextXAlignment = Enum.TextXAlignment.Left
 	
-				UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(86, 87, 85)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(78, 77, 73))}
+				UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
 				UIGradient.Rotation = 90
 				UIGradient.Parent = Button
 	
@@ -1084,7 +1089,7 @@ function self:Toggle(name,b,f)
 				TextButton.TextSize = 15.000
 				TextButton.TextStrokeTransparency = 1
 	
-				UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(86, 87, 85)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(78, 77, 73))}
+				UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
 				UIGradient.Rotation = 90
 				UIGradient.Parent = Keybind
 	
@@ -1140,7 +1145,7 @@ function self:Toggle(name,b,f)
 				SliderFrame.TextStrokeTransparency = 1
 				SliderFrame.ZIndex = 2
 	
-				UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(86, 87, 85)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(78, 77, 73))}
+				UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
 				UIGradient.Rotation = 90
 				UIGradient.Parent = Slider
 	
@@ -1211,7 +1216,7 @@ function self:Toggle(name,b,f)
 				Textbox.Size = UDim2.new(0, 146, 0, 20)
 				Textbox.BackgroundTransparency = .2
 	
-				UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(86, 87, 85)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(78, 77, 73))}
+				UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
 				UIGradient.Rotation = 90
 				UIGradient.Parent = Textbox
 	
@@ -1348,7 +1353,7 @@ function self:Toggle(name,b,f)
 				g = g + 1
 				if g <= 2 then
 					local onc = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(46, 59, 145)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(39, 49, 126))}
-					local ofc = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(86, 87, 85)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(78, 77, 73))}
+					local ofc = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
 					local tog = b
 					
 					local Toggle = Instance.new("Frame")
@@ -1416,7 +1421,7 @@ function self:Toggle(name,b,f)
 					TextButton.TextStrokeTransparency = 1
 					TextButton.TextXAlignment = Enum.TextXAlignment.Left
 		
-					UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(86, 87, 85)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(78, 77, 73))}
+					UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
 					UIGradient.Rotation = 90
 					UIGradient.Parent = Button
 
@@ -1452,7 +1457,7 @@ function self:Toggle(name,b,f)
 					TextButton.TextSize = 15.000
 					TextButton.TextStrokeTransparency = 1
 		
-					UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(86, 87, 85)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(78, 77, 73))}
+					UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
 					UIGradient.Rotation = 90
 					UIGradient.Parent = Keybind
 		
@@ -1511,7 +1516,7 @@ function self:Toggle(name,b,f)
 					SliderFrame.TextStrokeTransparency = 1
 					SliderFrame.ZIndex = 2
 		
-					UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(86, 87, 85)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(78, 77, 73))}
+					UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
 					UIGradient.Rotation = 90
 					UIGradient.Parent = Slider
 		
@@ -1585,7 +1590,7 @@ function self:Toggle(name,b,f)
 					Textbox.Size = UDim2.new(0, 154/2, 0, 20)
 					Textbox.BackgroundTransparency = .2
 		
-					UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(86, 87, 85)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(78, 77, 73))}
+					UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
 					UIGradient.Rotation = 90
 					UIGradient.Parent = Textbox
 		
