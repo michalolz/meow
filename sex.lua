@@ -860,7 +860,11 @@ function self:Toggle(name,b,f)
 		function self:ToggleDropdown(n,de,fu)
 			local self2 = {}
 
-			local onc = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(46, 59, 145)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(39, 49, 126))}
+			local onc = ColorSequence.new{
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 100, 203)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(118, 0, 254)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(71, 3, 183))
+			}	
 				local ofc = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
 			local togg = de
 
@@ -990,7 +994,11 @@ function self:Toggle(name,b,f)
 			end
 
 			function self2:Toggle(name,b,f)
-				local onc = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(46, 59, 145)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(39, 49, 126))}
+				local onc = ColorSequence.new{
+					ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 100, 203)),
+					ColorSequenceKeypoint.new(0.50, Color3.fromRGB(118, 0, 254)),
+					ColorSequenceKeypoint.new(1.00, Color3.fromRGB(71, 3, 183))
+				}	
 				local ofc = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
 				local tog = b
 				
@@ -1162,7 +1170,11 @@ function self:Toggle(name,b,f)
 				Slider_2.TextSize = 15.000
 				Slider_2.BackgroundTransparency = .2
 	
-				OnToggleGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(46, 59, 145)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(39, 49, 126))}
+				OnToggleGradient.Color = ColorSequence.new{
+					ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 100, 203)),
+					ColorSequenceKeypoint.new(0.50, Color3.fromRGB(118, 0, 254)),
+					ColorSequenceKeypoint.new(1.00, Color3.fromRGB(71, 3, 183))
+				}	
 				OnToggleGradient.Rotation = 90
 				OnToggleGradient.Name = "OnToggleGradient"
 				OnToggleGradient.Parent = Slider_2
@@ -1352,7 +1364,11 @@ function self:Toggle(name,b,f)
 			function self2:Toggle(name,b,f)
 				g = g + 1
 				if g <= 2 then
-					local onc = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(46, 59, 145)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(39, 49, 126))}
+					local onc = ColorSequence.new{
+						ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 100, 203)),
+						ColorSequenceKeypoint.new(0.50, Color3.fromRGB(118, 0, 254)),
+						ColorSequenceKeypoint.new(1.00, Color3.fromRGB(71, 3, 183))
+					}	
 					local ofc = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
 					local tog = b
 					
@@ -1533,7 +1549,11 @@ function self:Toggle(name,b,f)
 					Slider_2.TextSize = 15.000
 					Slider_2.BackgroundTransparency = .2
 		
-					OnToggleGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(46, 59, 145)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(39, 49, 126))}
+					OnToggleGradient.Color = ColorSequence.new{
+						ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 100, 203)),
+						ColorSequenceKeypoint.new(0.50, Color3.fromRGB(118, 0, 254)),
+						ColorSequenceKeypoint.new(1.00, Color3.fromRGB(71, 3, 183))
+					}	
 					OnToggleGradient.Rotation = 90
 					OnToggleGradient.Name = "OnToggleGradient"
 					OnToggleGradient.Parent = Slider_2
