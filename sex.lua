@@ -218,7 +218,7 @@ function ret:Library(Name)
 		Top.Name = "Top"
 		Top.Parent = Window1
 		Top.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		Top.BackgroundTransparency = 0.350
+		Top.BackgroundTransparency = 0.07
 		Top.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		Top.BorderSizePixel = 2
 		Top.Size = UDim2.new(0, 160, 0, 24)
@@ -272,7 +272,7 @@ function ret:Library(Name)
 		Holder.Position = UDim2.new(0, 0, 0, 26)
 		Holder.Size = UDim2.new(0, 160, 0, 100)
 		Holder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		Holder.BackgroundTransparency = 0.350
+		Holder.BackgroundTransparency = 0.07
 		Holder.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		Holder.BorderSizePixel = 2
 
