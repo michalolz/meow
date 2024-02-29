@@ -211,7 +211,7 @@ function ret:Library(Name)
 		Window1.Active = false
 		Window1.Visible = false
 
-		UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(38, 38, 38)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(28, 28, 28))}
+		UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0,0,0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0,0,0))}
 		UIGradient.Rotation = 90
 		UIGradient.Parent = Holder
 
@@ -263,7 +263,7 @@ function ret:Library(Name)
 		Max.TextSize = 35.000
 		Max.TextWrapped = true
 
-		UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(38, 38, 38)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(28, 28, 28))}
+		UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0,0,0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0,0,0))}
 		UIGradient_2.Rotation = 90
 		UIGradient_2.Parent = Top
 
