@@ -1,5 +1,5 @@
 --[[ phantom ui lib
-     this isn't for public use so i provide no documentation
+     this isn't for public use so there is no documentation
      didn't bother to obfuscate because lag and yes
 ]]
 local uis = game:GetService("UserInputService")
@@ -1116,6 +1116,7 @@ function self:Toggle(name,b,f)
 					selecting = true
 					local con; con = uis.InputBegan:Connect(function(m)
 						if m.KeyCode ~= Enum.KeyCode.Unknown then
+							tasl.wait(0.1)
 							k = m.KeyCode
 							TextButton.Text = tostring(n).." : "..tostring(k):sub(14):lower()
 							selecting = false
