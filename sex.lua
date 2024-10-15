@@ -20,8 +20,11 @@ function ret:Library(Name)
 	local ui = {}
 	local m = 0
 	local aui = Instance.new("ScreenGui")
-
-	aui.Parent = game:GetService("CoreGui")
+	if gethui then
+	aui.Parent = gethui()
+	else
+		aui.Parentgame:GetService("CoreGui")
+	end
 	aui.Name = "Phantom ui Remake"
 
 	local rtbl = {}
@@ -189,171 +192,189 @@ function ret:Library(Name)
 	function ui:Window(rbrbrb)
 		local self = {}
 		m = m + 1
-
+	
 		local Window1 = Instance.new("Frame")
-		local UIGradient = Instance.new("UIGradient")
+		local Top2 = Instance.new("Frame")
 		local Top = Instance.new("Frame")
 		local TextLabel = Instance.new("TextLabel")
-		local Min = Instance.new("TextButton")
-		local Max = Instance.new("TextButton")
-		local UIGradient_2 = Instance.new("UIGradient")
+		local Min = Instance.new("ImageButton")
 		local Holder = Instance.new("Frame")
 		local UIPadding = Instance.new("UIPadding")
-
-		Window1.Name = "Window"..tostring(m)
+		local UICorner = Instance.new("UICorner")
+		local UICorner2 = Instance.new("UICorner")
+		local UICorner3 = Instance.new("UICorner")
+		local vis = true
+	
+		Window1.Name = "Window" .. tostring(m)
 		Window1.Parent = aui
-		Window1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		Window1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 		Window1.BackgroundTransparency = 1
 		Window1.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		Window1.BorderSizePixel = 2
-		Window1.Position = UDim2.new(-0.08,170*m, 0.0417177901, 0)
+		Window1.Position = UDim2.new(-0.08, 230 * m, 0.0417177901, 0)
 		Window1.Size = UDim2.new(0, 160, 0, 274)
 		Window1.Active = false
 		Window1.Visible = false
-
-		UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0,0,0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0,0,0))}
-		UIGradient.Rotation = 90
-		UIGradient.Parent = Holder
-
+	
 		Top.Name = "Top"
 		Top.Parent = Window1
-		Top.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		Top.BackgroundTransparency = 0.07
+		Top.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		Top.BackgroundTransparency = 0
 		Top.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		Top.BorderSizePixel = 2
-		Top.Size = UDim2.new(0, 160, 0, 24)
-
+		Top.Size = UDim2.new(0, 220, 0, 24)
+	
+		Top2.Name = "Top2"
+		Top2.Parent = Window1
+		Top2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		Top2.BackgroundTransparency = 0
+		Top2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		Top2.BorderSizePixel = 2
+		Top2.Size = UDim2.new(0, 220, 0, 20)
+		Top2.Position = UDim2.new(0, 0, 0.1, -10)
+		Top2.ZIndex = -1
+	
 		TextLabel.Parent = Top
 		TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		TextLabel.BackgroundTransparency = 1.000
 		TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		TextLabel.BorderSizePixel = 0
-		TextLabel.Position = UDim2.new(0.0450000018, 0, 0, 0)
-		TextLabel.Size = UDim2.new(0, 95, 0, 24)
+		TextLabel.Position = UDim2.new(0, 0, 0, 0)
+		TextLabel.Size = UDim2.new(1, 0, 1, 0)
 		TextLabel.Font = Enum.Font.SourceSansBold
 		TextLabel.Text = tostring(rbrbrb)
 		TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-		TextLabel.TextSize = 20.000
+		TextLabel.TextSize = 16.000
 		TextLabel.TextStrokeTransparency = 1
-		TextLabel.TextXAlignment = Enum.TextXAlignment.Left
-
+		TextLabel.TextXAlignment = Enum.TextXAlignment.Center
+		TextLabel.TextYAlignment = Enum.TextYAlignment.Center
+	
 		Min.Name = "Min"
 		Min.Parent = Top
 		Min.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-		Min.BorderColor3 = Color3.fromRGB(51, 51, 51)
-		Min.BorderSizePixel = 2
-		Min.Position = UDim2.new(0.879999995, -1, 0.125, 0)
-		Min.Size = UDim2.new(0, 17, 0, 17)
-		Min.Font = Enum.Font.SourceSans
-		Min.LineHeight = 1.150
-		Min.Text = "-"
-		Min.TextColor3 = Color3.fromRGB(255, 255, 255)
-		Min.TextSize = 39.000
-
-		Max.Name = "Max"
-		Max.Parent = Top
-		Max.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-		Max.BorderColor3 = Color3.fromRGB(51, 51, 51)
-		Max.BorderSizePixel = 2
-		Max.Position = UDim2.new(0.713039219, 0, 0.125, 0)
-		Max.Size = UDim2.new(0, 17, 0, 17)
-		Max.Font = Enum.Font.SourceSans
-		Max.Text = ""
-		Max.TextColor3 = Color3.fromRGB(255, 255, 255)
-		Max.TextSize = 35.000
-		Max.TextWrapped = true
-
-		UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0,0,0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0,0,0))}
-		UIGradient_2.Rotation = 90
-		UIGradient_2.Parent = Top
-
+		Min.BorderSizePixel = 0
+		Min.Position = UDim2.new(0.879999995, -1, 0.225, 0)
+		Min.Size = UDim2.new(0, 14, 0, 14)
+		Min.Rotation = 0
+		Min.Image = "rbxassetid://6545531971"
+	
 		Holder.Name = "Holder"
 		Holder.Parent = Top
 		Holder.Position = UDim2.new(0, 0, 0, 26)
 		Holder.Size = UDim2.new(0, 160, 0, 100)
-		Holder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		Holder.BackgroundTransparency = 0.07
+		Holder.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		Holder.BackgroundTransparency = 0
 		Holder.BorderColor3 = Color3.fromRGB(0, 0, 0)
 		Holder.BorderSizePixel = 2
-
+	
 		UIPadding.Parent = Holder
 		UIPadding.PaddingBottom = UDim.new(0, 3)
 		UIPadding.PaddingLeft = UDim.new(0, 3)
 		UIPadding.PaddingRight = UDim.new(0, 3)
 		UIPadding.PaddingTop = UDim.new(0, 3)
-
+	
+		UICorner.CornerRadius = UDim.new(0, 5)
+		UICorner.Parent = Window1.Top
+	
+		UICorner2.CornerRadius = UDim.new(0, 5)
+		UICorner2.Parent = Window1.Top2
+	
+		UICorner3.CornerRadius = UDim.new(0, 5)
+		UICorner3.Parent = Window1.Top.Holder
+	
 		Min.MouseButton1Down:Connect(function()
-			Holder.Visible = false
-			Max.Text = "+"
-			Min.Text = ""
+			if vis then
+				vis = not vis
+				Holder.Visible = false
+				Top2.Visible = false
+				Min.Rotation = 180
+			else
+				vis = not vis
+				Holder.Visible = true
+				Top2.Visible = true
+				Min.Rotation = 0
+			end
 		end)
-
-		Max.MouseButton1Down:Connect(function()
-			Holder.Visible = true
-			Max.Text = ""
-			Min.Text = "-"
-		end)
-
-		draggable(Top)
-
+	
+		draggable(Window1)
+	
 		local function resize()
 			local m = 0
 			local m2 = -1
-			for i,v in pairs(Holder:GetChildren()) do
-			    if v:IsA("Frame") then
-    				m = m + v.AbsoluteSize.Y + 4
-			    end
-			end
-			for i,v in pairs(Holder:GetChildren()) do
+			for i, v in pairs(Holder:GetChildren()) do
 				if v:IsA("Frame") then
-					m2 = m2 + 1
-					v.Position = UDim2.new(0,0,0,(24*m2))
+					m = m + v.AbsoluteSize.Y + 6
 				end
 			end
-			Holder.Size = UDim2.new(0,160,0,m+2)
+			for i, v in pairs(Holder:GetChildren()) do
+				if v:IsA("Frame") then
+					m2 = m2 + 1
+					v.Position = UDim2.new(0, 0, 0, (26 * m2))
+				end
+			end
+			Holder.Size = UDim2.new(0, 220, 0, m + 2)
 		end
 
+		
 
-
-function self:Toggle(name,b,f)
-	local onc = ColorSequence.new{
-		ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 100, 203)),
-		ColorSequenceKeypoint.new(0.50, Color3.fromRGB(118, 0, 254)),
-		ColorSequenceKeypoint.new(1.00, Color3.fromRGB(71, 3, 183))
-	}	
-			local ofc = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
+		function self:Toggle(name, b, f)
+			local onc = ColorSequence.new{
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(77, 21, 148)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(77, 21, 148)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(77, 21, 148))
+			}
+			local ofc = ColorSequence.new{
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0, 0, 0)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 0, 0))
+			}
 			local tog = b
-			
+		
 			local Toggle = Instance.new("Frame")
 			local TextButton = Instance.new("TextButton")
 			local UIGradient = Instance.new("UIGradient")
-
+			local UICorner = Instance.new("UICorner")
+			local OuterFrame = Instance.new("UIStroke")
+			local OCorner = Instance.new("UICorner")
+		
 			Toggle.Name = "Toggle"
 			Toggle.Parent = Holder
 			Toggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Toggle.BorderColor3 = Color3.fromRGB(23, 25, 52)
-			Toggle.Size = UDim2.new(0, 154, 0, 20)
-			Toggle.BackgroundTransparency = .2
-
+			Toggle.BorderColor3 = Color3.fromRGB(255, 255, 255)  -- Grey color for the border
+			Toggle.BorderSizePixel = 2  -- Thin border
+			Toggle.Size = UDim2.new(0, 215, 0, 20)
+			Toggle.BackgroundTransparency = 0
+			Toggle.Position = UDim2.new(0, 1, 0, 1.2)
+		
 			TextButton.Parent = Toggle
 			TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			TextButton.BackgroundTransparency = 1.000
-			TextButton.BorderSizePixel = 3
+			TextButton.BorderSizePixel = 0
 			TextButton.Position = UDim2.new(0.026041666, 0, 0, 0)
-			TextButton.Size = UDim2.new(0, 148, 0, 20)
+			TextButton.Size = UDim2.new(0, 210, 0, 20)
 			TextButton.Font = Enum.Font.SourceSansBold
 			TextButton.Text = tostring(name)
 			TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 			TextButton.TextSize = 15.000
 			TextButton.TextStrokeTransparency = 1
-			TextButton.TextXAlignment = Enum.TextXAlignment.Left
-
+			TextButton.TextXAlignment = Enum.TextXAlignment.Center
+		
 			UIGradient.Color = ((tog and onc) or (not tog and ofc))
 			UIGradient.Rotation = 90
 			UIGradient.Parent = Toggle
-			
-			if b then f(b) end
+		
+			UICorner.CornerRadius = UDim.new(0, 3)
+			UICorner.Parent = Toggle
+			OCorner.CornerRadius = UDim.new(0, 3)
+			OCorner.Parent = OuterFrame
 
+			OuterFrame.Name = "OuterFrame"
+			OuterFrame.Parent = Holder.Toggle
+			OuterFrame.Color = Color3.fromRGB(25,25,25)
+			OuterFrame.Thickness = 1
+		
+			if b then f(b) end
+		
 			TextButton.MouseButton1Down:Connect(function()
 				f(not tog)
 				tog = not tog
@@ -361,42 +382,56 @@ function self:Toggle(name,b,f)
 			end)
 			resize()
 		end
-
-
 		
-
-		function self:Button(n,f)
+		function self:Button(n, f)
+			local OuterFrame = Instance.new("UIStroke")
 			local Button = Instance.new("Frame")
 			local TextButton = Instance.new("TextButton")
-			local UIGradient = Instance.new("UIGradient")
-
+			local UICorner = Instance.new("UICorner")
+			local OCorner = Instance.new("UICorner")
+			
+			
+		
+			-- Inner Button frame
 			Button.Name = "Button"
 			Button.Parent = Holder
-			Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Button.BorderColor3 = Color3.fromRGB(23, 25, 52)
-			Button.Size = UDim2.new(0, 154, 0, 20)
-			Button.BackgroundTransparency = .2
-
+			Button.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+			Button.BorderSizePixel = 0
+			Button.Size = UDim2.new(0, 215, 0, 20)
+			Button.Position = UDim2.new(0, 1, 0, 1.2)
+			Button.BackgroundTransparency = 0
+			
+			-- TextButton settings
 			TextButton.Parent = Button
-			TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			TextButton.BackgroundTransparency = 1.000
-			TextButton.BorderSizePixel = 3
+			TextButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+			TextButton.BackgroundTransparency = 1
+			TextButton.BorderSizePixel = 0
 			TextButton.Position = UDim2.new(0.026041666, 0, 0, 0)
-			TextButton.Size = UDim2.new(0, 148, 0, 20)
+			TextButton.Size = UDim2.new(0, 210, 0, 20)
 			TextButton.Font = Enum.Font.SourceSansBold
 			TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 			TextButton.Text = tostring(n)
-			TextButton.TextSize = 15.000
-			TextButton.TextStrokeTransparency = 1
-			TextButton.TextXAlignment = Enum.TextXAlignment.Left
+			TextButton.TextSize = 15
+			TextButton.TextStrokeTransparency = 0
+			TextButton.TextXAlignment = Enum.TextXAlignment.Center
+			
+			-- UICorner settings
+			UICorner.CornerRadius = UDim.new(0, 3)
+			UICorner.Parent = Button
+			OCorner.CornerRadius = UDim.new(0, 3)
+			OCorner.Parent = OuterFrame
 
-			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
-			UIGradient.Rotation = 90
-			UIGradient.Parent = Button
-
+			OuterFrame.Name = "OuterFrame"
+			OuterFrame.Parent = Holder.Button
+			OuterFrame.Color = Color3.fromRGB(25,25,25)
+			OuterFrame.Thickness = 1
+			
 			TextButton.MouseButton1Down:Connect(f)
 			resize()
 		end
+		
+		
+		
 
 		function self:Keybind(n,d,f)
 			local k = d
@@ -404,12 +439,14 @@ function self:Toggle(name,b,f)
 			local Keybind = Instance.new("Frame")
 			local TextButton = Instance.new("TextButton")
 			local UIGradient = Instance.new("UIGradient")
+			local UICorner = Instance.new("UICorner")
+			local OuterFrame = Instance.new("UIStroke")
 
 			Keybind.Name = "Keybind"
 			Keybind.Parent = Holder
 			Keybind.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			Keybind.BorderColor3 = Color3.fromRGB(23, 25, 52)
-			Keybind.Size = UDim2.new(0, 154, 0, 20)
+			Keybind.Size = UDim2.new(0, 215, 0, 20)
 			Keybind.BackgroundTransparency = .2
 
 			TextButton.Parent = Keybind
@@ -417,16 +454,28 @@ function self:Toggle(name,b,f)
 			TextButton.BackgroundTransparency = 1.000
 			TextButton.BorderSizePixel = 3
 			TextButton.Position = UDim2.new(0.026041666, 0, 0, 0)
-			TextButton.Size = UDim2.new(0, 148, 0, 20)
+			TextButton.Size = UDim2.new(0, 210, 0, 20)
 			TextButton.Font = Enum.Font.SourceSansBold
 			TextButton.Text = tostring(n).." : "..tostring(d):sub(14):lower()
 			TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 			TextButton.TextSize = 15.000
 			TextButton.TextStrokeTransparency = 1
 
-			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
+			UIGradient.Color = ColorSequence.new{
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0,0,0))
+			}
 			UIGradient.Rotation = 90
 			UIGradient.Parent = Keybind
+
+			UICorner.CornerRadius = UDim.new(0, 3)
+		    UICorner.Parent = Keybind
+
+			OuterFrame.Name = "OuterFrame"
+			OuterFrame.Parent = Holder.Keybind
+			OuterFrame.Color = Color3.fromRGB(25,25,25)
+			OuterFrame.Thickness = 1
 
 			uis.InputBegan:Connect(function(m,m2)
 				if not m2 then
@@ -449,10 +498,10 @@ function self:Toggle(name,b,f)
 						selecting = false
 						con:Disconnect()
 						UIGradient.Color = ColorSequence.new{
-							ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 100, 203)),
-							ColorSequenceKeypoint.new(0.50, Color3.fromRGB(118, 0, 254)),
-							ColorSequenceKeypoint.new(1.00, Color3.fromRGB(71, 3, 183))
-						}	
+							ColorSequenceKeypoint.new(0.00, Color3.fromRGB(77, 21, 148)),
+							ColorSequenceKeypoint.new(0.50, Color3.fromRGB(77, 21, 148)),
+							ColorSequenceKeypoint.new(1.00, Color3.fromRGB(77, 21, 148))
+						}
 					end
 				end)
 			end)
@@ -463,13 +512,15 @@ function self:Toggle(name,b,f)
 			local Label = Instance.new("Frame")
 			local TextLabel = Instance.new("TextLabel")
 			local UIGradient = Instance.new("UIGradient")
+			local UICorner = Instance.new("UICorner")
+			local OuterFrame = Instance.new("UIStroke")
 
 			Label.Name = "Label"
 			Label.Parent = Holder
 			Label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			Label.BorderColor3 = Color3.fromRGB(23, 25, 52)
 			Label.Position = UDim2.new(0, 0, 0, 48)
-			Label.Size = UDim2.new(0, 154, 0, 20)
+			Label.Size = UDim2.new(0, 215, 0, 20)
 			Label.BackgroundTransparency = .2
 
 			TextLabel.Name = "TextLabel"
@@ -478,17 +529,30 @@ function self:Toggle(name,b,f)
 			TextLabel.BackgroundTransparency = 1.000
 			TextLabel.BorderSizePixel = 3
 			TextLabel.Position = UDim2.new(0.0329861119, 0, 0.0500000007, 0)
-			TextLabel.Size = UDim2.new(0, 148, 0, 20)
+			TextLabel.Size = UDim2.new(0, 210, 0, 20)
 			TextLabel.Font = Enum.Font.SourceSansBold
 			TextLabel.Text = tostring(text)
 			TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 			TextLabel.TextSize = 15.000
 			TextLabel.TextStrokeTransparency = 1
-			TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+			TextLabel.TextXAlignment = Enum.TextXAlignment.Center
 
-			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
+			UIGradient.Color = ColorSequence.new{
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0,0,0))
+			}
 			UIGradient.Rotation = 90
 			UIGradient.Parent = Label
+
+			UICorner.CornerRadius = UDim.new(0, 3)
+		    UICorner.Parent = Label
+
+			OuterFrame.Name = "OuterFrame"
+			OuterFrame.Parent = Holder.Label
+			OuterFrame.Color = Color3.fromRGB(25,25,25)
+			OuterFrame.Thickness = 1
+
 			resize()
 		end
 
@@ -498,13 +562,15 @@ function self:Toggle(name,b,f)
 			local UIGradient = Instance.new("UIGradient")
 			local Slider_2 = Instance.new("TextButton")
 			local OnToggleGradient = Instance.new("UIGradient")
+			local UICorner = Instance.new("UICorner")
+			
 
 			Slider.Name = "Slider"
 			Slider.Parent = Holder
 			Slider.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			Slider.BorderColor3 = Color3.fromRGB(23, 25, 52)
 			Slider.Position = UDim2.new(0, 0, 0, 72)
-			Slider.Size = UDim2.new(0, 154, 0, 20)
+			Slider.Size = UDim2.new(0, 215, 0, 20)
 			Slider.BackgroundTransparency = .2
 
 			SliderFrame.Parent = Slider
@@ -512,7 +578,7 @@ function self:Toggle(name,b,f)
 			SliderFrame.BackgroundTransparency = 1.000
 			SliderFrame.BorderSizePixel = 3
 			SliderFrame.Position = UDim2.new(0.026041666, 0, 0, 0)
-			SliderFrame.Size = UDim2.new(0, 148, 0, 20)
+			SliderFrame.Size = UDim2.new(0, 210, 0, 20)
 			SliderFrame.Font = Enum.Font.SourceSansBold
 			SliderFrame.Text = tostring(n)..": "..tostring(default)
 			SliderFrame.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -520,7 +586,11 @@ function self:Toggle(name,b,f)
 			SliderFrame.TextStrokeTransparency = 1
 			SliderFrame.ZIndex = 2
 
-			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
+			UIGradient.Color = ColorSequence.new{
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0,0,0))
+			}
 			UIGradient.Rotation = 90
 			UIGradient.Parent = Slider
 
@@ -538,14 +608,20 @@ function self:Toggle(name,b,f)
 			Slider_2.BackgroundTransparency = .2
 
 			OnToggleGradient.Color = ColorSequence.new{
-				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 100, 203)),
-				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(118, 0, 254)),
-				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(71, 3, 183))
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(77, 21, 148)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(77, 21, 148)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(77, 21, 148))
 			}
+			
 
 			OnToggleGradient.Rotation = 90
 			OnToggleGradient.Name = "OnToggleGradient"
 			OnToggleGradient.Parent = Slider_2
+
+			UICorner.CornerRadius = UDim.new(0, 3)
+		    UICorner.Parent = Slider
+
+
 
 			uis.InputEnded:Connect(function(m)
     			if m.UserInputType == Enum.UserInputType.MouseButton1 then
@@ -588,16 +664,22 @@ function self:Toggle(name,b,f)
 			local UIGradient = Instance.new("UIGradient")
 			local TextBox = Instance.new("TextBox")
 			local TextLabel = Instance.new("TextLabel")
+			local UICorner = Instance.new("UICorner")
+			local OuterFrame = Instance.new("UIStroke")
 
 			Textbox.Name = "Textbox"
 			Textbox.Parent = Holder
 			Textbox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			Textbox.BorderColor3 = Color3.fromRGB(23, 25, 52)
 			Textbox.Position = UDim2.new(0, 0, 0, 168)
-			Textbox.Size = UDim2.new(0, 154, 0, 20)
+			Textbox.Size = UDim2.new(0, 215, 0, 20)
 			Textbox.BackgroundTransparency = .2
 
-			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
+			UIGradient.Color = ColorSequence.new{
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0,0,0))
+			}
 			UIGradient.Rotation = 90
 			UIGradient.Parent = Textbox
 
@@ -605,7 +687,7 @@ function self:Toggle(name,b,f)
 			TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			TextBox.BackgroundTransparency = 1.000
 			TextBox.Position = UDim2.new(0.0267857146, 0, 0, 0)
-			TextBox.Size = UDim2.new(0, 148, 0, 20)
+			TextBox.Size = UDim2.new(0, 210, 0, 20)
 			TextBox.ZIndex = 2
 			TextBox.PlaceholderText = tostring(n)
 			TextBox.Font = Enum.Font.SourceSansBold
@@ -613,21 +695,29 @@ function self:Toggle(name,b,f)
 			TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
 			TextBox.TextSize = 15.000
 			TextBox.TextStrokeTransparency = 1
-			TextBox.TextXAlignment = Enum.TextXAlignment.Left
+			TextBox.TextXAlignment = Enum.TextXAlignment.Center
 
 			TextLabel.Name = "TextLabel"
 			TextLabel.Parent = Textbox
 			TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			TextLabel.BackgroundTransparency = 1.000
 			TextLabel.Position = UDim2.new(0.0267857146, 0, 0, 0)
-			TextLabel.Size = UDim2.new(0, 148, 0, 20)
+			TextLabel.Size = UDim2.new(0, 210, 0, 20)
 			TextLabel.Font = Enum.Font.SourceSansBold
 			TextLabel.Text = ""
 			TextLabel.TextColor3 = Color3.fromRGB(179, 179, 179)
 			TextLabel.TextSize = 15.000
 			TextLabel.TextStrokeTransparency = 1
-			TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+			TextLabel.TextXAlignment = Enum.TextXAlignment.Center
 			local fs = ""
+
+			UICorner.CornerRadius = UDim.new(0, 3)
+		    UICorner.Parent = TextBox
+
+			OuterFrame.Name = "OuterFrame"
+			OuterFrame.Parent = Holder.Textbox
+			OuterFrame.Color = Color3.fromRGB(25,25,25)
+			OuterFrame.Thickness = 1
 
 			TextBox.Changed:Connect(function(t)
 				if t == "Text" and find ~= nil then
@@ -683,6 +773,8 @@ function self:Toggle(name,b,f)
 			local UIListLayout = Instance.new("UIListLayout")
 			local UIPadding = Instance.new("UIPadding")
 			local UIGradient_2 = Instance.new("UIGradient")
+			local UICorner = Instance.new("UICorner")
+			local OuterFrame = Instance.new("UIStroke")
 
 			local openg = false
 
@@ -691,7 +783,7 @@ function self:Toggle(name,b,f)
 			Dropdown.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			Dropdown.BorderColor3 = Color3.fromRGB(23, 25, 52)
 			Dropdown.Position = UDim2.new(0, 0, 0, 24)
-			Dropdown.Size = UDim2.new(0, 154, 0, 20)
+			Dropdown.Size = UDim2.new(0, 215, 0, 20)
 			Dropdown.BackgroundTransparency = .2
 
 			TextLabel.Name = "TextLabel"
@@ -700,20 +792,24 @@ function self:Toggle(name,b,f)
 			TextLabel.BackgroundTransparency = 1.000
 			TextLabel.BorderSizePixel = 3
 			TextLabel.Position = UDim2.new(0.026041666, 0, 0, 0)
-			TextLabel.Size = UDim2.new(0, 128, 0, 20)
+			TextLabel.Size = UDim2.new(0, 215, 0, 20)
 			TextLabel.Font = Enum.Font.SourceSansBold
 			TextLabel.Text = tostring(n)
 			TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 			TextLabel.TextSize = 15.000
 			TextLabel.TextStrokeTransparency = 1
-			TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+			TextLabel.TextXAlignment = Enum.TextXAlignment.Center
 
-			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
+			UIGradient.Color = ColorSequence.new{
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0,0,0))
+			}
 			UIGradient.Rotation = 90
 			UIGradient.Parent = Dropdown
 
 			ImageButton.Parent = Dropdown
-			ImageButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			ImageButton.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
 			ImageButton.BackgroundTransparency = 1.000
 			ImageButton.Position = UDim2.new(0.854166746, 0, 0.0500000007, 0)
 			ImageButton.Rotation = 0
@@ -735,7 +831,11 @@ function self:Toggle(name,b,f)
 			DFrame.Visible = false
 			DFrame.BackgroundTransparency = .2
 
-			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
+			UIGradient.Color = ColorSequence.new{
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0,0,0))
+			}
 			UIGradient.Rotation = 90
 			UIGradient.Parent = DFrame
 
@@ -743,9 +843,21 @@ function self:Toggle(name,b,f)
 			UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 			UIListLayout.Padding = UDim.new(0, 4)
 
-			UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
+			UIGradient_2.Color = ColorSequence.new{
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0,0,0))
+			}
 			UIGradient_2.Rotation = 90
 			UIGradient_2.Parent = Dropdown
+
+			UICorner.CornerRadius = UDim.new(0, 3)
+		    UICorner.Parent = Dropdown
+
+			OuterFrame.Name = "OuterFrame"
+			OuterFrame.Parent = Holder.Dropdown
+			OuterFrame.Color = Color3.fromRGB(25,25,25)
+			OuterFrame.Thickness = 1
 
 			local function getsize()
 				local m = 4
@@ -819,20 +931,32 @@ function self:Toggle(name,b,f)
 				Option.TextColor3 = Color3.fromRGB(255, 255, 255)
 				Option.TextSize = 15.000
 				Option.TextStrokeTransparency = 1
-				Option.TextXAlignment = Enum.TextXAlignment.Left
+				Option.TextXAlignment = Enum.TextXAlignment.Center
 
-				UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
+				UIGradient_2.Color = ColorSequence.new{
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0,0,0))
+			}
 				UIGradient_2.Rotation = 90
 				UIGradient_2.Parent = OptionParent
 
 				Option.MouseButton1Down:Connect(function()
-					UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
+					UIGradient_2.Color = ColorSequence.new{
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0,0,0))
+			}
 					task.wait(.5)
 					up()
 					openg = false
 					DFrame.Visible = false
 					ImageButton.Rotation = 0
-					UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
+					UIGradient_2.Color = ColorSequence.new{
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0,0,0))
+			}
 					f(thing)
 				end)
 			end
@@ -861,11 +985,15 @@ function self:Toggle(name,b,f)
 			local self2 = {}
 
 			local onc = ColorSequence.new{
-				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 100, 203)),
-				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(118, 0, 254)),
-				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(71, 3, 183))
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(77, 21, 148)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(77, 21, 148)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(77, 21, 148))
 			}	
-				local ofc = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
+				local ofc = ColorSequence.new{
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0,0,0))
+			}
 			local togg = de
 
 			local Dropdown = Instance.new("Frame")
@@ -877,6 +1005,8 @@ function self:Toggle(name,b,f)
 			local UIListLayout = Instance.new("UIListLayout")
 			local UIPadding = Instance.new("UIPadding")
 			local UIGradient_2 = Instance.new("UIGradient")
+			local UICorner = Instance.new("UICorner")
+			local OuterFrame = Instance.new("UIStroke")
 
 			local openg = false
 
@@ -885,7 +1015,7 @@ function self:Toggle(name,b,f)
 			Dropdown.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			Dropdown.BorderColor3 = Color3.fromRGB(23, 25, 52)
 			Dropdown.Position = UDim2.new(0, 0, 0, 24)
-			Dropdown.Size = UDim2.new(0, 154, 0, 20)
+			Dropdown.Size = UDim2.new(0, 215, 0, 20)
 			Dropdown.BackgroundTransparency = .2
 
 			TextLabel.Name = "TextLabel"
@@ -894,15 +1024,19 @@ function self:Toggle(name,b,f)
 			TextLabel.BackgroundTransparency = 1.000
 			TextLabel.BorderSizePixel = 3
 			TextLabel.Position = UDim2.new(0.026041666, 0, 0, 0)
-			TextLabel.Size = UDim2.new(0, 128, 0, 20)
+			TextLabel.Size = UDim2.new(0, 215, 0, 20)
 			TextLabel.Font = Enum.Font.SourceSansBold
 			TextLabel.Text = tostring(n)
-			TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+			TextLabel.TextColor3 = Color3.fromRGB(180, 180, 180)
 			TextLabel.TextSize = 15.000
 			TextLabel.TextStrokeTransparency = 1
-			TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+			TextLabel.TextXAlignment = Enum.TextXAlignment.Center
 
-			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
+			UIGradient.Color = ColorSequence.new{
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0,0,0))
+			}
 			UIGradient.Rotation = 90
 			UIGradient.Parent = DFrame
 
@@ -936,11 +1070,20 @@ function self:Toggle(name,b,f)
 			UIGradient_2.Color = ((togg and onc) or (not togg and ofc))
 			UIGradient_2.Rotation = 90
 			UIGradient_2.Parent = Dropdown
+
+			UICorner.CornerRadius = UDim.new(0, 3)
+		    UICorner.Parent = Dropdown
+
+			OuterFrame.Name = "OuterFrame"
+			OuterFrame.Parent = Holder.Dropdown
+			OuterFrame.Color = Color3.fromRGB(25,25,25)
+			OuterFrame.Thickness = 1
 	
 			TextLabel.MouseButton1Down:Connect(function()
 				fu(not togg)
 				togg = not togg
 				UIGradient_2.Color = ((togg and onc) or (not togg and ofc))
+				TextLabel.TextColor3 = ((togg and Color3.fromRGB(255, 255, 255)) or (not togg and Color3.fromRGB(180, 180, 180)))
 			end)
 
 			if de then fu(de) end
@@ -995,43 +1138,62 @@ function self:Toggle(name,b,f)
 
 			function self2:Toggle(name,b,f)
 				local onc = ColorSequence.new{
-					ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 100, 203)),
-					ColorSequenceKeypoint.new(0.50, Color3.fromRGB(118, 0, 254)),
-					ColorSequenceKeypoint.new(1.00, Color3.fromRGB(71, 3, 183))
-				}	
-				local ofc = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
+					ColorSequenceKeypoint.new(0.00, Color3.fromRGB(77, 21, 148)),
+					ColorSequenceKeypoint.new(0.50, Color3.fromRGB(77, 21, 148)),
+					ColorSequenceKeypoint.new(1.00, Color3.fromRGB(77, 21, 148))
+				}
+				local ofc = ColorSequence.new{
+					ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)),
+					ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0, 0, 0)),
+					ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 0, 0))
+				}
 				local tog = b
-				
+			
 				local Toggle = Instance.new("Frame")
 				local TextButton = Instance.new("TextButton")
 				local UIGradient = Instance.new("UIGradient")
-	
+				local UICorner = Instance.new("UICorner")
+				local OuterFrame = Instance.new("UIStroke")
+				local OCorner = Instance.new("UICorner")
+			
 				Toggle.Name = "Toggle"
-				Toggle.Parent = DFrame
+				Toggle.Parent = Holder
 				Toggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				Toggle.BorderColor3 = Color3.fromRGB(23, 25, 52)
-				Toggle.Size = UDim2.new(0, 146, 0, 20)
-				Toggle.BackgroundTransparency = .2
-	
+				Toggle.BorderColor3 = Color3.fromRGB(255, 255, 255)  -- Grey color for the border
+				Toggle.BorderSizePixel = 2  -- Thin border
+				Toggle.Size = UDim2.new(0, 215, 0, 20)
+				Toggle.BackgroundTransparency = 0
+				Toggle.Position = UDim2.new(0, 1, 0, 1.2)
+			
 				TextButton.Parent = Toggle
 				TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 				TextButton.BackgroundTransparency = 1.000
-				TextButton.BorderSizePixel = 3
+				TextButton.BorderSizePixel = 0
 				TextButton.Position = UDim2.new(0.026041666, 0, 0, 0)
-				TextButton.Size = UDim2.new(0, 140, 0, 20)
+				TextButton.Size = UDim2.new(0, 210, 0, 20)
 				TextButton.Font = Enum.Font.SourceSansBold
 				TextButton.Text = tostring(name)
 				TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 				TextButton.TextSize = 15.000
 				TextButton.TextStrokeTransparency = 1
-				TextButton.TextXAlignment = Enum.TextXAlignment.Left
-	
+				TextButton.TextXAlignment = Enum.TextXAlignment.Center
+			
 				UIGradient.Color = ((tog and onc) or (not tog and ofc))
 				UIGradient.Rotation = 90
 				UIGradient.Parent = Toggle
-				
-				if b then f(b) end
+			
+				UICorner.CornerRadius = UDim.new(0, 3)
+				UICorner.Parent = Toggle
+				OCorner.CornerRadius = UDim.new(0, 3)
+				OCorner.Parent = OuterFrame
 	
+				OuterFrame.Name = "OuterFrame"
+				OuterFrame.Parent = Holder.Toggle
+				OuterFrame.Color = Color3.fromRGB(25,25,25)
+				OuterFrame.Thickness = 1
+			
+				if b then f(b) end
+			
 				TextButton.MouseButton1Down:Connect(function()
 					f(not tog)
 					tog = not tog
@@ -1041,89 +1203,108 @@ function self:Toggle(name,b,f)
 	
 			function self2:Button(n,f)
 				local Button = Instance.new("Frame")
-				local TextButton = Instance.new("TextButton")
-				local UIGradient = Instance.new("UIGradient")
-	
-				Button.Name = "Button"
-				Button.Parent = DFrame
-				Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				Button.BorderColor3 = Color3.fromRGB(23, 25, 52)
-				Button.Size = UDim2.new(0, 146, 0, 20)
-				Button.BackgroundTransparency = .2
-	
-				TextButton.Parent = Button
-				TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				TextButton.BackgroundTransparency = 1.000
-				TextButton.BorderSizePixel = 3
-				TextButton.Position = UDim2.new(0.026041666, 0, 0, 0)
-				TextButton.Size = UDim2.new(0, 140, 0, 20)
-				TextButton.Font = Enum.Font.SourceSansBold
-				TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-				TextButton.Text = tostring(n)
-				TextButton.TextSize = 15.000
-				TextButton.TextStrokeTransparency = 1
-				TextButton.TextXAlignment = Enum.TextXAlignment.Left
-	
-				UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
-				UIGradient.Rotation = 90
-				UIGradient.Parent = Button
-	
-				TextButton.MouseButton1Down:Connect(f)
+			local TextButton = Instance.new("TextButton")
+			local UICorner = Instance.new("UICorner")
+			
+			Button.Name = "Button"
+			Button.Parent = Holder
+			Button.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+			Button.BorderColor3 = Color3.fromRGB(255,255,255)
+			Button.BorderSizePixel = 5
+			Button.Size = UDim2.new(0, 215, 0, 20)
+			Button.BackgroundTransparency = 0
+
+			
+			TextButton.Parent = Button
+			TextButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+			TextButton.BackgroundTransparency = 1.000
+			TextButton.Position = UDim2.new(0.026041666, 0, 0, 0)
+			TextButton.Size = UDim2.new(0, 210, 0, 20)
+			TextButton.Font = Enum.Font.SourceSansBold
+			TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+			TextButton.Text = tostring(n)
+			TextButton.TextSize = 15.000
+			TextButton.TextStrokeTransparency = 0
+			TextButton.TextXAlignment = Enum.TextXAlignment.Center
+			
+			UICorner.CornerRadius = UDim.new(0, 3)
+			UICorner.Parent = Button
+
+					TextButton.MouseButton1Down:Connect(f)
 			end
 	
 			function self2:Keybind(n,d,f)
 				local k = d
-	
-				local Keybind = Instance.new("Frame")
-				local TextButton = Instance.new("TextButton")
-				local UIGradient = Instance.new("UIGradient")
-	
-				Keybind.Name = "Keybind"
-				Keybind.Parent = DFrame
-				Keybind.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				Keybind.BorderColor3 = Color3.fromRGB(23, 25, 52)
-				Keybind.Size = UDim2.new(0, 146, 0, 20)
-				Keybind.BackgroundTransparency = .2
-	
-				TextButton.Parent = Keybind
-				TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				TextButton.BackgroundTransparency = 1.000
-				TextButton.BorderSizePixel = 3
-				TextButton.Position = UDim2.new(0.026041666, 0, 0, 0)
-				TextButton.Size = UDim2.new(0, 140, 0, 20)
-				TextButton.Font = Enum.Font.SourceSansBold
-				TextButton.Text = tostring(n).." : "..tostring(d):sub(14):lower()
-				TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-				TextButton.TextSize = 15.000
-				TextButton.TextStrokeTransparency = 1
-	
-				UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
-				UIGradient.Rotation = 90
-				UIGradient.Parent = Keybind
-	
-				uis.InputBegan:Connect(function(m,m2)
-					if not m2 then
-						if not selecting then
-							if m.KeyCode == k then
-								f(k)
-							end
+
+			local Keybind = Instance.new("Frame")
+			local TextButton = Instance.new("TextButton")
+			local UIGradient = Instance.new("UIGradient")
+			local UICorner = Instance.new("UICorner")
+			local OuterFrame = Instance.new("UIStroke")
+
+			Keybind.Name = "Keybind"
+			Keybind.Parent = Holder
+			Keybind.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			Keybind.BorderColor3 = Color3.fromRGB(23, 25, 52)
+			Keybind.Size = UDim2.new(0, 215, 0, 20)
+			Keybind.BackgroundTransparency = .2
+
+			TextButton.Parent = Keybind
+			TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			TextButton.BackgroundTransparency = 1.000
+			TextButton.BorderSizePixel = 3
+			TextButton.Position = UDim2.new(0.026041666, 0, 0, 0)
+			TextButton.Size = UDim2.new(0, 210, 0, 20)
+			TextButton.Font = Enum.Font.SourceSansBold
+			TextButton.Text = tostring(n).." : "..tostring(d):sub(14):lower()
+			TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+			TextButton.TextSize = 15.000
+			TextButton.TextStrokeTransparency = 1
+
+			UIGradient.Color = ColorSequence.new{
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0,0,0))
+			}
+			UIGradient.Rotation = 90
+			UIGradient.Parent = Keybind
+
+			UICorner.CornerRadius = UDim.new(0, 3)
+		    UICorner.Parent = Keybind
+
+			OuterFrame.Name = "OuterFrame"
+			OuterFrame.Parent = Holder.Keybind
+			OuterFrame.Color = Color3.fromRGB(25,25,25)
+			OuterFrame.Thickness = 1
+
+			uis.InputBegan:Connect(function(m,m2)
+				if not m2 then
+					if not selecting then
+						if m.KeyCode == k then
+							f(k)
 						end
 					end
+				end
+			end)
+
+			TextButton.MouseButton1Down:Connect(function()
+
+				TextButton.Text = tostring(n).." : ..."
+				selecting = true
+				local con; con = uis.InputBegan:Connect(function(m)
+					if m.KeyCode ~= Enum.KeyCode.Unknown then
+						k = m.KeyCode
+						TextButton.Text = tostring(n).." : "..tostring(k):sub(14):lower()
+						selecting = false
+						con:Disconnect()
+						UIGradient.Color = ColorSequence.new{
+							ColorSequenceKeypoint.new(0.00, Color3.fromRGB(77, 21, 148)),
+							ColorSequenceKeypoint.new(0.50, Color3.fromRGB(77, 21, 148)),
+							ColorSequenceKeypoint.new(1.00, Color3.fromRGB(77, 21, 148))
+						}
+					end
 				end)
-	
-				TextButton.MouseButton1Down:Connect(function()
-					TextButton.Text = tostring(n).." : ..."
-					selecting = true
-					local con; con = uis.InputBegan:Connect(function(m)
-						if m.KeyCode ~= Enum.KeyCode.Unknown then
-							tasl.wait(0.1)
-							k = m.KeyCode
-							TextButton.Text = tostring(n).." : "..tostring(k):sub(14):lower()
-							selecting = false
-							con:Disconnect()
-						end
-					end)
-				end)
+			end)
 			end
 	
 			function self2:Slider(n,min,max,default,precise,f)
@@ -1132,6 +1313,7 @@ function self:Toggle(name,b,f)
 				local UIGradient = Instance.new("UIGradient")
 				local Slider_2 = Instance.new("TextButton")
 				local OnToggleGradient = Instance.new("UIGradient")
+				local UICorner = Instance.new("UICorner")
 	
 				Slider.Name = "Slider"
 				Slider.Parent = DFrame
@@ -1154,7 +1336,11 @@ function self:Toggle(name,b,f)
 				SliderFrame.TextStrokeTransparency = 1
 				SliderFrame.ZIndex = 2
 	
-				UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
+				UIGradient.Color = ColorSequence.new{
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0,0,0))
+			}
 				UIGradient.Rotation = 90
 				UIGradient.Parent = Slider
 	
@@ -1217,91 +1403,105 @@ function self:Toggle(name,b,f)
 	
 			function self2:TextBox(n,find,f)
 				local Textbox = Instance.new("Frame")
-				local UIGradient = Instance.new("UIGradient")
-				local TextBox = Instance.new("TextBox")
-				local TextLabel = Instance.new("TextLabel")
-	
-				Textbox.Name = "Textbox"
-				Textbox.Parent = DFrame
-				Textbox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				Textbox.BorderColor3 = Color3.fromRGB(23, 25, 52)
-				Textbox.Position = UDim2.new(0, 0, 0, 168)
-				Textbox.Size = UDim2.new(0, 146, 0, 20)
-				Textbox.BackgroundTransparency = .2
-	
-				UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
-				UIGradient.Rotation = 90
-				UIGradient.Parent = Textbox
-	
-				TextBox.Parent = Textbox
-				TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				TextBox.BackgroundTransparency = 1.000
-				TextBox.Position = UDim2.new(0.0267857146, 0, 0, 0)
-				TextBox.Size = UDim2.new(0, 140, 0, 20)
-				TextBox.ZIndex = 2
-				TextBox.PlaceholderText = tostring(n)
-				TextBox.Font = Enum.Font.SourceSansBold
-				TextBox.Text = ""
-				TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-				TextBox.TextSize = 15.000
-				TextBox.TextStrokeTransparency = 1
-				TextBox.TextXAlignment = Enum.TextXAlignment.Left
-	
-				TextLabel.Name = "TextLabel"
-				TextLabel.Parent = Textbox
-				TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				TextLabel.BackgroundTransparency = 1.000
-				TextLabel.Position = UDim2.new(0.0267857146, 0, 0, 0)
-				TextLabel.Size = UDim2.new(0, 148, 0, 20)
-				TextLabel.Font = Enum.Font.SourceSansBold
-				TextLabel.Text = ""
-				TextLabel.TextColor3 = Color3.fromRGB(179, 179, 179)
-				TextLabel.TextSize = 15.000
-				TextLabel.TextStrokeTransparency = 1
-				TextLabel.TextXAlignment = Enum.TextXAlignment.Left
-				local fs = ""
-	
-				TextBox.Changed:Connect(function(t)
-					if t == "Text" and find ~= nil then
-						local text = TextBox.Text
-						if typeof(find) == "string" and find:lower() == "players" and TextBox.Text ~= "" then
-							for i,v in pairs(game:GetService("Players"):GetPlayers()) do
-								if v.Name:lower():find(text:lower()) then
-									TextLabel.Text = TextBox.Text..v.Name:sub(#TextBox.Text+1)
-									fs = v.Name
-									break
-								end
-								
-								if v.DisplayName:lower():find(text:lower()) then
-									TextLabel.Text = TextBox.Text..v.DisplayName:sub(#TextBox.Text+1)
-									fs = v.DisplayName
-									break
-								end
+			local UIGradient = Instance.new("UIGradient")
+			local TextBox = Instance.new("TextBox")
+			local TextLabel = Instance.new("TextLabel")
+			local UICorner = Instance.new("UICorner")
+			local OuterFrame = Instance.new("UIStroke")
+
+			Textbox.Name = "Textbox"
+			Textbox.Parent = Holder
+			Textbox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			Textbox.BorderColor3 = Color3.fromRGB(23, 25, 52)
+			Textbox.Position = UDim2.new(0, 0, 0, 168)
+			Textbox.Size = UDim2.new(0, 215, 0, 20)
+			Textbox.BackgroundTransparency = .2
+
+			UIGradient.Color = ColorSequence.new{
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0,0,0))
+			}
+			UIGradient.Rotation = 90
+			UIGradient.Parent = Textbox
+
+			TextBox.Parent = Textbox
+			TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			TextBox.BackgroundTransparency = 1.000
+			TextBox.Position = UDim2.new(0.0267857146, 0, 0, 0)
+			TextBox.Size = UDim2.new(0, 210, 0, 20)
+			TextBox.ZIndex = 2
+			TextBox.PlaceholderText = tostring(n)
+			TextBox.Font = Enum.Font.SourceSansBold
+			TextBox.Text = ""
+			TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+			TextBox.TextSize = 15.000
+			TextBox.TextStrokeTransparency = 1
+			TextBox.TextXAlignment = Enum.TextXAlignment.Center
+
+			TextLabel.Name = "TextLabel"
+			TextLabel.Parent = Textbox
+			TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			TextLabel.BackgroundTransparency = 1.000
+			TextLabel.Position = UDim2.new(0.0267857146, 0, 0, 0)
+			TextLabel.Size = UDim2.new(0, 210, 0, 20)
+			TextLabel.Font = Enum.Font.SourceSansBold
+			TextLabel.Text = ""
+			TextLabel.TextColor3 = Color3.fromRGB(179, 179, 179)
+			TextLabel.TextSize = 15.000
+			TextLabel.TextStrokeTransparency = 1
+			TextLabel.TextXAlignment = Enum.TextXAlignment.Center
+			local fs = ""
+
+			UICorner.CornerRadius = UDim.new(0, 3)
+		    UICorner.Parent = TextBox
+
+			OuterFrame.Name = "OuterFrame"
+			OuterFrame.Parent = Holder.Textbox
+			OuterFrame.Color = Color3.fromRGB(25,25,25)
+			OuterFrame.Thickness = 1
+
+			TextBox.Changed:Connect(function(t)
+				if t == "Text" and find ~= nil then
+					local text = TextBox.Text
+					if typeof(find) == "string" and find:lower() == "players" and TextBox.Text ~= "" then
+						for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+							if v.Name:lower():find(text:lower()) then
+								TextLabel.Text = TextBox.Text..v.Name:sub(#TextBox.Text+1)
+								fs = v.Name
+								break
 							end
-						end
-	
-						if typeof(find) == "table" and TextBox.Text ~= "" then
-							for i,v in pairs(find) do
-								if tostring(v):lower():find(text:lower()) then
-									TextLabel.Text = TextBox.Text..tostring(v):sub(#TextBox.Text+1)
-									fs = tostring(v)
-									break
-								end
+							
+							if v.DisplayName:lower():find(text:lower()) then
+								TextLabel.Text = TextBox.Text..v.DisplayName:sub(#TextBox.Text+1)
+								fs = v.DisplayName
+								break
 							end
 						end
 					end
-				end)
-	
-				TextBox.FocusLost:Connect(function()
-					if uis:IsKeyDown(Enum.KeyCode.RightShift) or uis:IsKeyDown(Enum.KeyCode.LeftShift) then
-						f(TextLabel.Text)
-						TextBox.Text = fs
-						TextLabel.Text = ""
-					else
-						f(TextBox.Text)
-						TextLabel.Text = ""
+
+					if typeof(find) == "table" and TextBox.Text ~= "" then
+						for i,v in pairs(find) do
+							if tostring(v):lower():find(text:lower()) then
+								TextLabel.Text = TextBox.Text..tostring(v):sub(#TextBox.Text+1)
+								fs = tostring(v)
+								break
+							end
+						end
 					end
-				end)
+				end
+			end)
+
+			TextBox.FocusLost:Connect(function()
+				if uis:IsKeyDown(Enum.KeyCode.RightShift) or uis:IsKeyDown(Enum.KeyCode.LeftShift) then
+					f(TextLabel.Text)
+					TextBox.Text = fs
+					TextLabel.Text = ""
+				else
+					f(TextBox.Text)
+					TextLabel.Text = ""
+				end
+			end)
 			end
 
 			ImageButton.MouseButton1Down:Connect(function()
@@ -1350,6 +1550,7 @@ function self:Toggle(name,b,f)
 			local UIGradient = Instance.new("UIGradient")
 			local UIListLayout = Instance.new("UIListLayout")
 
+
 			SplitHolder.Name = "SplitFrame"
 			SplitHolder.Parent = Holder
 			SplitHolder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -1366,43 +1567,62 @@ function self:Toggle(name,b,f)
 				g = g + 1
 				if g <= 2 then
 					local onc = ColorSequence.new{
-						ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 100, 203)),
-						ColorSequenceKeypoint.new(0.50, Color3.fromRGB(118, 0, 254)),
-						ColorSequenceKeypoint.new(1.00, Color3.fromRGB(71, 3, 183))
-					}	
-					local ofc = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
+						ColorSequenceKeypoint.new(0.00, Color3.fromRGB(77, 21, 148)),
+						ColorSequenceKeypoint.new(0.50, Color3.fromRGB(77, 21, 148)),
+						ColorSequenceKeypoint.new(1.00, Color3.fromRGB(77, 21, 148))
+					}
+					local ofc = ColorSequence.new{
+						ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)),
+						ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0, 0, 0)),
+						ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 0, 0))
+					}
 					local tog = b
-					
+				
 					local Toggle = Instance.new("Frame")
 					local TextButton = Instance.new("TextButton")
 					local UIGradient = Instance.new("UIGradient")
-		
+					local UICorner = Instance.new("UICorner")
+					local OuterFrame = Instance.new("UIStroke")
+					local OCorner = Instance.new("UICorner")
+				
 					Toggle.Name = "Toggle"
-					Toggle.Parent = SplitHolder
+					Toggle.Parent = Holder
 					Toggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-					Toggle.BorderColor3 = Color3.fromRGB(23, 25, 52)
-					Toggle.Size = UDim2.new(0, 154/2, 0, 20)
-					Toggle.BackgroundTransparency = .2
-		
+					Toggle.BorderColor3 = Color3.fromRGB(255, 255, 255)  -- Grey color for the border
+					Toggle.BorderSizePixel = 2  -- Thin border
+					Toggle.Size = UDim2.new(0, 215, 0, 20)
+					Toggle.BackgroundTransparency = 0
+					Toggle.Position = UDim2.new(0, 1, 0, 1.2)
+				
 					TextButton.Parent = Toggle
 					TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 					TextButton.BackgroundTransparency = 1.000
-					TextButton.BorderSizePixel = 3
+					TextButton.BorderSizePixel = 0
 					TextButton.Position = UDim2.new(0.026041666, 0, 0, 0)
-					TextButton.Size = UDim2.new(0, 148/2, 0, 20)
+					TextButton.Size = UDim2.new(0, 210, 0, 20)
 					TextButton.Font = Enum.Font.SourceSansBold
 					TextButton.Text = tostring(name)
 					TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 					TextButton.TextSize = 15.000
 					TextButton.TextStrokeTransparency = 1
-					TextButton.TextXAlignment = Enum.TextXAlignment.Left
-		
+					TextButton.TextXAlignment = Enum.TextXAlignment.Center
+				
 					UIGradient.Color = ((tog and onc) or (not tog and ofc))
 					UIGradient.Rotation = 90
 					UIGradient.Parent = Toggle
-					
-					if b then f(b) end
+				
+					UICorner.CornerRadius = UDim.new(0, 3)
+					UICorner.Parent = Toggle
+					OCorner.CornerRadius = UDim.new(0, 3)
+					OCorner.Parent = OuterFrame
 		
+					OuterFrame.Name = "OuterFrame"
+					OuterFrame.Parent = Holder.Toggle
+					OuterFrame.Color = Color3.fromRGB(25,25,25)
+					OuterFrame.Thickness = 1
+				
+					if b then f(b) end
+				
 					TextButton.MouseButton1Down:Connect(function()
 						f(not tog)
 						tog = not tog
@@ -1415,32 +1635,32 @@ function self:Toggle(name,b,f)
 				g = g + 1
 				if g <= 2 then
 					local Button = Instance.new("Frame")
-					local TextButton = Instance.new("TextButton")
-					local UIGradient = Instance.new("UIGradient")
-		
-					Button.Name = "Button"
-					Button.Parent = SplitHolder
-					Button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-					Button.BorderColor3 = Color3.fromRGB(23, 25, 52)
-					Button.Size = UDim2.new(0, 154/2, 0, 20)
-					Button.BackgroundTransparency = .2
-		
-					TextButton.Parent = Button
-					TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-					TextButton.BackgroundTransparency = 1.000
-					TextButton.BorderSizePixel = 3
-					TextButton.Position = UDim2.new(0, 0, 0, 0)
-					TextButton.Size = UDim2.new(0, 148/2, 0, 20)
-					TextButton.Font = Enum.Font.SourceSansBold
-					TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-					TextButton.Text = tostring(n)
-					TextButton.TextSize = 15.000
-					TextButton.TextStrokeTransparency = 1
-					TextButton.TextXAlignment = Enum.TextXAlignment.Left
-		
-					UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
-					UIGradient.Rotation = 90
-					UIGradient.Parent = Button
+			local TextButton = Instance.new("TextButton")
+			local UICorner = Instance.new("UICorner")
+			
+			Button.Name = "Button"
+			Button.Parent = Holder
+			Button.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+			Button.BorderColor3 = Color3.fromRGB(255,255,255)
+			Button.BorderSizePixel = 5
+			Button.Size = UDim2.new(0, 215, 0, 20)
+			Button.BackgroundTransparency = 0
+
+			
+			TextButton.Parent = Button
+			TextButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+			TextButton.BackgroundTransparency = 1.000
+			TextButton.Position = UDim2.new(0.026041666, 0, 0, 0)
+			TextButton.Size = UDim2.new(0, 210, 0, 20)
+			TextButton.Font = Enum.Font.SourceSansBold
+			TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+			TextButton.Text = tostring(n)
+			TextButton.TextSize = 15.000
+			TextButton.TextStrokeTransparency = 0
+			TextButton.TextXAlignment = Enum.TextXAlignment.Center
+			
+			UICorner.CornerRadius = UDim.new(0, 3)
+			UICorner.Parent = Button
 
 					TextButton.MouseButton1Down:Connect(f)
 				end
@@ -1450,56 +1670,76 @@ function self:Toggle(name,b,f)
 				g = g + 1
 				if g <= 2 then
 					local k = d
-		
-					local Keybind = Instance.new("Frame")
-					local TextButton = Instance.new("TextButton")
-					local UIGradient = Instance.new("UIGradient")
-		
-					Keybind.Name = "Keybind"
-					Keybind.Parent = SplitHolder
-					Keybind.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-					Keybind.BorderColor3 = Color3.fromRGB(23, 25, 52)
-					Keybind.Size = UDim2.new(0, 154/2, 0, 20)
-					Keybind.BackgroundTransparency = .2
-		
-					TextButton.Parent = Keybind
-					TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-					TextButton.BackgroundTransparency = 1.000
-					TextButton.BorderSizePixel = 3
-					TextButton.Position = UDim2.new(0, 0, 0, 0)
-					TextButton.Size = UDim2.new(0, 148/2, 0, 20)
-					TextButton.Font = Enum.Font.SourceSansBold
-					TextButton.Text = tostring(n).." : "..tostring(d):sub(14):lower()
-					TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-					TextButton.TextSize = 15.000
-					TextButton.TextStrokeTransparency = 1
-		
-					UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
-					UIGradient.Rotation = 90
-					UIGradient.Parent = Keybind
-		
-					uis.InputBegan:Connect(function(m,m2)
-						if not m2 then
-							if not selecting then
-								if m.KeyCode == k then
-									f(k)
-								end
-							end
+
+			local Keybind = Instance.new("Frame")
+			local TextButton = Instance.new("TextButton")
+			local UIGradient = Instance.new("UIGradient")
+			local UICorner = Instance.new("UICorner")
+			local OuterFrame = Instance.new("UIStroke")
+
+			Keybind.Name = "Keybind"
+			Keybind.Parent = Holder
+			Keybind.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			Keybind.BorderColor3 = Color3.fromRGB(23, 25, 52)
+			Keybind.Size = UDim2.new(0, 215, 0, 20)
+			Keybind.BackgroundTransparency = .2
+
+			TextButton.Parent = Keybind
+			TextButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			TextButton.BackgroundTransparency = 1.000
+			TextButton.BorderSizePixel = 3
+			TextButton.Position = UDim2.new(0.026041666, 0, 0, 0)
+			TextButton.Size = UDim2.new(0, 210, 0, 20)
+			TextButton.Font = Enum.Font.SourceSansBold
+			TextButton.Text = tostring(n).." : "..tostring(d):sub(14):lower()
+			TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+			TextButton.TextSize = 15.000
+			TextButton.TextStrokeTransparency = 1
+
+			UIGradient.Color = ColorSequence.new{
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0,0,0))
+			}
+			UIGradient.Rotation = 90
+			UIGradient.Parent = Keybind
+
+			UICorner.CornerRadius = UDim.new(0, 3)
+		    UICorner.Parent = Keybind
+
+			OuterFrame.Name = "OuterFrame"
+			OuterFrame.Parent = Holder.Keybind
+			OuterFrame.Color = Color3.fromRGB(25,25,25)
+			OuterFrame.Thickness = 1
+
+			uis.InputBegan:Connect(function(m,m2)
+				if not m2 then
+					if not selecting then
+						if m.KeyCode == k then
+							f(k)
 						end
-					end)
-		
-					TextButton.MouseButton1Down:Connect(function()
-						TextButton.Text = tostring(n).." : ..."
-						selecting = true
-						local con; con = uis.InputBegan:Connect(function(m)
-							if m.KeyCode ~= Enum.KeyCode.Unknown then
-								k = m.KeyCode
-								TextButton.Text = tostring(n).." : "..tostring(k):sub(14):lower()
-								selecting = false
-								con:Disconnect()
-							end
-						end)
-					end)
+					end
+				end
+			end)
+
+			TextButton.MouseButton1Down:Connect(function()
+
+				TextButton.Text = tostring(n).." : ..."
+				selecting = true
+				local con; con = uis.InputBegan:Connect(function(m)
+					if m.KeyCode ~= Enum.KeyCode.Unknown then
+						k = m.KeyCode
+						TextButton.Text = tostring(n).." : "..tostring(k):sub(14):lower()
+						selecting = false
+						con:Disconnect()
+						UIGradient.Color = ColorSequence.new{
+							ColorSequenceKeypoint.new(0.00, Color3.fromRGB(77, 21, 148)),
+							ColorSequenceKeypoint.new(0.50, Color3.fromRGB(77, 21, 148)),
+							ColorSequenceKeypoint.new(1.00, Color3.fromRGB(77, 21, 148))
+						}
+					end
+				end)
+			end)
 				end
 			end
 	
@@ -1511,6 +1751,7 @@ function self:Toggle(name,b,f)
 					local UIGradient = Instance.new("UIGradient")
 					local Slider_2 = Instance.new("TextButton")
 					local OnToggleGradient = Instance.new("UIGradient")
+					local UICorner = Instance.new("UICorner")
 		
 					Slider.Name = "Slider"
 					Slider.Parent = SplitHolder
@@ -1533,7 +1774,11 @@ function self:Toggle(name,b,f)
 					SliderFrame.TextStrokeTransparency = 1
 					SliderFrame.ZIndex = 2
 		
-					UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
+					UIGradient.Color = ColorSequence.new{
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0,0,0))
+			}
 					UIGradient.Rotation = 90
 					UIGradient.Parent = Slider
 		
@@ -1599,95 +1844,105 @@ function self:Toggle(name,b,f)
 				g = g + 1
 				if g <= 2 then
 					local Textbox = Instance.new("Frame")
-					local UIGradient = Instance.new("UIGradient")
-					local TextBox = Instance.new("TextBox")
-					local TextLabel = Instance.new("TextLabel")
-		
-					Textbox.Name = "Textbox"
-					Textbox.Parent = SplitHolder
-					Textbox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-					Textbox.BorderColor3 = Color3.fromRGB(23, 25, 52)
-					Textbox.Position = UDim2.new(0, 0, 0, 0)
-					Textbox.Size = UDim2.new(0, 154/2, 0, 20)
-					Textbox.BackgroundTransparency = .2
-		
-					UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(30, 1, 64)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(30, 1, 64))}
-					UIGradient.Rotation = 90
-					UIGradient.Parent = Textbox
-		
-					TextBox.Parent = Textbox
-					TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-					TextBox.BackgroundTransparency = 1.000
-					TextBox.Position = UDim2.new(0.0267857146, 0, 0, 0)
-					TextBox.Size = UDim2.new(0, 148/2, 0, 20)
-					TextBox.ZIndex = 2
-					TextBox.PlaceholderText = tostring(n)
-					TextBox.Font = Enum.Font.SourceSansBold
-					TextBox.Text = ""
-					TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-					TextBox.TextSize = 15.000
-					TextBox.TextStrokeTransparency = 1
-					TextBox.TextXAlignment = Enum.TextXAlignment.Left
-		
-					TextLabel.Name = "TextLabel"
-					TextLabel.Parent = Textbox
-					TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-					TextLabel.BackgroundTransparency = 1.000
-					TextLabel.Position = UDim2.new(0.0267857146, 0, 0, 0)
-					TextLabel.Size = UDim2.new(0, 148/2, 0, 20)
-					TextLabel.Font = Enum.Font.SourceSansBold
+			local UIGradient = Instance.new("UIGradient")
+			local TextBox = Instance.new("TextBox")
+			local TextLabel = Instance.new("TextLabel")
+			local UICorner = Instance.new("UICorner")
+			local OuterFrame = Instance.new("UIStroke")
+
+			Textbox.Name = "Textbox"
+			Textbox.Parent = Holder
+			Textbox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			Textbox.BorderColor3 = Color3.fromRGB(23, 25, 52)
+			Textbox.Position = UDim2.new(0, 0, 0, 168)
+			Textbox.Size = UDim2.new(0, 215, 0, 20)
+			Textbox.BackgroundTransparency = .2
+
+			UIGradient.Color = ColorSequence.new{
+				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0,0,0)),
+				ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0,0,0))
+			}
+			UIGradient.Rotation = 90
+			UIGradient.Parent = Textbox
+
+			TextBox.Parent = Textbox
+			TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			TextBox.BackgroundTransparency = 1.000
+			TextBox.Position = UDim2.new(0.0267857146, 0, 0, 0)
+			TextBox.Size = UDim2.new(0, 210, 0, 20)
+			TextBox.ZIndex = 2
+			TextBox.PlaceholderText = tostring(n)
+			TextBox.Font = Enum.Font.SourceSansBold
+			TextBox.Text = ""
+			TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+			TextBox.TextSize = 15.000
+			TextBox.TextStrokeTransparency = 1
+			TextBox.TextXAlignment = Enum.TextXAlignment.Center
+
+			TextLabel.Name = "TextLabel"
+			TextLabel.Parent = Textbox
+			TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			TextLabel.BackgroundTransparency = 1.000
+			TextLabel.Position = UDim2.new(0.0267857146, 0, 0, 0)
+			TextLabel.Size = UDim2.new(0, 210, 0, 20)
+			TextLabel.Font = Enum.Font.SourceSansBold
+			TextLabel.Text = ""
+			TextLabel.TextColor3 = Color3.fromRGB(179, 179, 179)
+			TextLabel.TextSize = 15.000
+			TextLabel.TextStrokeTransparency = 1
+			TextLabel.TextXAlignment = Enum.TextXAlignment.Center
+			local fs = ""
+
+			UICorner.CornerRadius = UDim.new(0, 3)
+		    UICorner.Parent = TextBox
+
+			OuterFrame.Name = "OuterFrame"
+			OuterFrame.Parent = Holder.Textbox
+			OuterFrame.Color = Color3.fromRGB(25,25,25)
+			OuterFrame.Thickness = 1
+
+			TextBox.Changed:Connect(function(t)
+				if t == "Text" and find ~= nil then
+					local text = TextBox.Text
+					if typeof(find) == "string" and find:lower() == "players" and TextBox.Text ~= "" then
+						for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+							if v.Name:lower():find(text:lower()) then
+								TextLabel.Text = TextBox.Text..v.Name:sub(#TextBox.Text+1)
+								fs = v.Name
+								break
+							end
+							
+							if v.DisplayName:lower():find(text:lower()) then
+								TextLabel.Text = TextBox.Text..v.DisplayName:sub(#TextBox.Text+1)
+								fs = v.DisplayName
+								break
+							end
+						end
+					end
+
+					if typeof(find) == "table" and TextBox.Text ~= "" then
+						for i,v in pairs(find) do
+							if tostring(v):lower():find(text:lower()) then
+								TextLabel.Text = TextBox.Text..tostring(v):sub(#TextBox.Text+1)
+								fs = tostring(v)
+								break
+							end
+						end
+					end
+				end
+			end)
+
+			TextBox.FocusLost:Connect(function()
+				if uis:IsKeyDown(Enum.KeyCode.RightShift) or uis:IsKeyDown(Enum.KeyCode.LeftShift) then
+					f(TextLabel.Text)
+					TextBox.Text = fs
 					TextLabel.Text = ""
-					TextLabel.TextColor3 = Color3.fromRGB(179, 179, 179)
-					TextLabel.TextSize = 15.000
-					TextLabel.TextStrokeTransparency = 1
-					TextLabel.TextXAlignment = Enum.TextXAlignment.Left
-					local fs = ""
-		
-					TextBox.Changed:Connect(function(t)
-						if t == "Text" and find ~= nil then
-							local text = TextBox.Text
-							if typeof(find) == "string" and find:lower() == "players" and TextBox.Text ~= "" then
-								for i,v in pairs(game:GetService("Players"):GetPlayers()) do
-									if v.Name:lower():find(text:lower()) then
-										TextLabel.Text = TextBox.Text..v.Name:sub(#TextBox.Text+1)
-										fs = v.Name
-										break
-									end
-									
-									if v.DisplayName:lower():find(text:lower()) then
-										TextLabel.Text = TextBox.Text..v.DisplayName:sub(#TextBox.Text+1)
-										fs = v.DisplayName
-										break
-									end
-
-									fs = ""
-								end
-							end
-		
-							if typeof(find) == "table" and TextBox.Text ~= "" then
-								for i,v in pairs(find) do
-									if tostring(v):lower():find(text:lower()) then
-										TextLabel.Text = TextBox.Text..tostring(v):sub(#TextBox.Text+1)
-										fs = tostring(v)
-										break
-									end
-
-									fs = ""
-								end
-							end
-						end
-					end)
-		
-					TextBox.FocusLost:Connect(function()
-						if uis:IsKeyDown(Enum.KeyCode.RightShift) or uis:IsKeyDown(Enum.KeyCode.LeftShift) then
-							f(TextLabel.Text)
-							TextBox.Text = fs
-							TextLabel.Text = ""
-						else
-							f(TextBox.Text)
-							TextLabel.Text = ""
-						end
-					end)
+				else
+					f(TextBox.Text)
+					TextLabel.Text = ""
+				end
+			end)
 				end
 			end
 			resize()
