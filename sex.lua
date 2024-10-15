@@ -1116,6 +1116,7 @@ function self:Toggle(name,b,f)
 					selecting = true
 					local con; con = uis.InputBegan:Connect(function(m)
 						if m.KeyCode ~= Enum.KeyCode.Unknown then
+							tasl.wait(0.1)
 							k = m.KeyCode
 							TextButton.Text = tostring(n).." : "..tostring(k):sub(14):lower()
 							selecting = false
